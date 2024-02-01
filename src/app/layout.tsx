@@ -1,7 +1,10 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import Image from "next/image"
+import { MainHeader } from "@/components/Header/MainHeader"
+import bgImage from "@/assets/all-guardians.webp"
 
 import "./globals.css"
+import { BodyOverlay } from "@/components/BodyOverlay/BodyOverlay"
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,10 +17,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body 
-        // className={inter.className}
-      >{children}</body>
+    <html lang="pt-BR">
+      <body className="relative overflow-x-hidden flex flex-col flex-1 min-h-screen">
+        <MainHeader />
+        <Image
+          src={bgImage}
+          alt="Rostos de todos os vingadores"
+          className="-z-10 fixed right-0 bottom-0 top-[130px]"
+          // className="fixed object-cover w-screen h-screen -z-50"
+        />
+        <BodyOverlay />
+        {children}
+      </body>
     </html>
   )
 }
