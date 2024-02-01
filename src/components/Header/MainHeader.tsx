@@ -5,7 +5,7 @@ import ProfilePath from "@/assets/eu.jpg"
 import {
   axiformaBold,
   axiformaLight,
-} from "@/components/Fonts/Axiforma/axiforma"
+} from "@/components/Fonts/Axiforma"
 import { Logo } from "../Logo"
 import { ProfilePhoto } from "../ProfilePhoto/ProfilePhoto"
 import { usePathname } from "next/navigation"
