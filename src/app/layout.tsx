@@ -20,12 +20,15 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className="relative overflow-x-hidden flex flex-col flex-1 min-h-screen">
         <MainHeader />
-        <Image
-          src={bgImage}
-          alt="Rostos de todos os vingadores"
-          className="-z-10 fixed right-0 bottom-0 top-[130px]"
-          // className="fixed object-cover w-screen h-screen -z-50"
-        />
+        <div className="-z-10 fixed right-0 left-1/2 bottom-0 top-[130px] ">
+          <Image
+            src={bgImage}
+            alt="Rostos de todos os vingadores"
+            className="w-full h-full object-cover"
+            // className="fixed object-cover w-screen h-screen -z-50"
+          />
+        </div>
+
         <BodyOverlay />
         {children}
       </body>
