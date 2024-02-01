@@ -1,6 +1,5 @@
 import { Hero } from "@/@types/types"
-import { IntroCard } from "@/components/Cards/IntroCard"
-import { ScrollableContainer } from "@/components/ScrollableContainer"
+
 
 async function getAllHeros(): Promise<{ data: Hero[] }> {
   const response = await fetch(
