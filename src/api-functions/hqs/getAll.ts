@@ -3,7 +3,7 @@ import { env } from "@/env"
 
 export async function getAllHqs(): Promise<{ data: Hq[] }> {
   const response = await fetch(
-    `${env.NEXT_PUBLIC_BASE_URL}/api/hq/get-all`,
+    `${env.NEXT_PUBLIC_VERCEL_URL}/api/hq/get-all`,
     {
       headers: {
         Accept: "application/json",

@@ -1,8 +1,8 @@
 import {z} from "zod"
 
 const envSchema = z.object({
-    NEXT_PUBLIC_BASE_URL: z.string().url("❌ ENV: Forneça uma URL para NEXT_PUBLIC_BASE_URL"),
-    NEXT_PUBLIC_NODE_ENV: z.enum(["dev", "prod"])
+    NEXT_PUBLIC_VERCEL_URL: z.string().url("❌ ENV: Forneça uma URL para NEXT_PUBLIC_VERCEL_URL"),
+    NEXT_PUBLIC_VERCEL_ENV: z.enum(["development", "preview","production"])
 })
 
 const safeParse = envSchema.safeParse(process.env)

@@ -8,7 +8,7 @@ export async function getMovieDetails({
   slug,
 }: Params): Promise<{ data: { detail: MovieDetails } }> {
   const response = await fetch(
-    `${env.NEXT_PUBLIC_BASE_URL}/api/movie/${slug}/`,
+    `${env.NEXT_PUBLIC_VERCEL_URL}/api/movie/${slug}/`,
     {
       headers: {
         Accept: "application/json",

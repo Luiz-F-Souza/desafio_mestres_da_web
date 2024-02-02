@@ -3,7 +3,7 @@ import { env } from "@/env"
 
 export async function getAllMovies(): Promise<{ data: Hero[] }> {
   const response = await fetch(
-    `${env.NEXT_PUBLIC_BASE_URL}/api/movie/get-all`,
+    `${env.NEXT_PUBLIC_VERCEL_URL}/api/movie/get-all`,
     {
       headers: {
         Accept: "application/json",

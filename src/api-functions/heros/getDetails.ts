@@ -8,7 +8,7 @@ export async function getHerosDetails({
   slug,
 }: Params): Promise<{ data: { detail: HeroDetails } }> {
   const response = await fetch(
-    `${env.NEXT_PUBLIC_BASE_URL}/api/hero/${slug}/`,
+    `${env.NEXT_PUBLIC_VERCEL_URL}/api/hero/${slug}/`,
     {
       headers: {
         Accept: "application/json",
