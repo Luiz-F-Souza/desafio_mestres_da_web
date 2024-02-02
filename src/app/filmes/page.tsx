@@ -1,7 +1,7 @@
-import { getHerosDetails } from "@/api-functions/heros/getDetails"
 import { getAllMovies } from "@/api-functions/movies/getAll"
+import { getMovieDetails } from "@/api-functions/movies/getDetails"
 import { InformationCard } from "@/components/Cards/InformationCard"
-import { HeroMoreDetails } from "@/components/Cards/components/HeroMoreDetails"
+import { MovieMoreDetails } from "@/components/Cards/components/MovieMoreDetails"
 import { ScrollableContainer } from "@/components/ScrollableContainer"
 
 type Props = {
@@ -15,11 +15,11 @@ export default async function MoviesPage({ searchParams }: Props) {
   const slug = searchParams?.slug
   const isSomeCardOpen = !!slug
 
-  // const movieMoreDetailsRequest = isSomeCardOpen
-  //   ? await getHerosDetails({ slug: slug })
-  //   : undefined
+  const movieMoreDetailsRequest = isSomeCardOpen
+    ? await getMovieDetails({ slug: slug })
+    : undefined
 
-  // const movieDetails = movieMoreDetailsRequest?.data.detail
+  const movieDetails = movieMoreDetailsRequest?.data.detail
 
   return (
     <main className="flex flex-col flex-1">
@@ -35,12 +35,11 @@ export default async function MoviesPage({ searchParams }: Props) {
               imageURL={movie.imageUrl}
               pageSlug={searchParams?.slug}
             >
-              TESTEE
-              {/* <HeroMoreDetails
+              <MovieMoreDetails
                 isOpen={isCurrentCardOpen}
                 title={movie.name}
-                heroDetails={isCurrentCardOpen ? heroDetails : undefined}
-              /> */}
+                movieDetails={isCurrentCardOpen ? movieDetails : undefined}
+              />
             </InformationCard>
           )
         })}
