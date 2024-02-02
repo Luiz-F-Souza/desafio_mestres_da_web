@@ -1,5 +1,5 @@
 import { HeroDetails } from "@/@types/types"
-import { env } from "@/env"
+// import { env } from "@/env"
 
 type Params = {
   slug: string
@@ -8,7 +8,7 @@ export async function getHerosDetails({
   slug,
 }: Params): Promise<{ data: { detail: HeroDetails } }> {
   const response = await fetch(
-    `${env.NEXT_PUBLIC_VERCEL_URL}/api/hero/${slug}/`,
+    `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/hero/${slug}/`,
     {
       headers: {
         Accept: "application/json",

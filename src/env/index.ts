@@ -1,15 +1,20 @@
-import {z} from "zod"
+// import { z } from "zod"
 
-const envSchema = z.object({
-    NEXT_PUBLIC_VERCEL_URL: z.string().url("❌ ENV: Forneça uma URL para NEXT_PUBLIC_VERCEL_URL"),
-    NEXT_PUBLIC_VERCEL_ENV: z.enum(["development", "preview","production"])
-})
+// const envSchema = z.object({
+//   NEXT_PUBLIC_VERCEL_URL: z
+//     .string()
+//     .url("❌ ENV: Forneça uma URL para NEXT_PUBLIC_VERCEL_URL"),
+//   NEXT_PUBLIC_VERCEL_ENV: z.enum(["development", "preview", "production"]),
+// })
 
-const safeParse = envSchema.safeParse(process.env)
+// const safeParse = envSchema.safeParse(process.env)
 
-if(!safeParse.success){
+// if (!safeParse.success) {
+//   if (process.env.NEXT_PUBLIC_VERCEL_ENV === "development") {
+//     throw new Error(
+//       `O ambiente .env.local deve ser configurado corretamente. Erro: ${safeParse.error.message}`
+//     )
+//   }
+// }
 
-    throw new Error(`O ambiente .env.local deve ser configurado corretamente. Erro: ${safeParse.error.message}`)
-}
-
-export const env = safeParse.data
+// export const env = safeParse.data

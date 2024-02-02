@@ -1,5 +1,5 @@
 import { HqDetails } from "@/@types/types"
-import { env } from "@/env"
+// import { env } from "@/env"
 
 type Params = {
   slug: string
@@ -8,7 +8,7 @@ type Params = {
 type ReturnType = { data: { detail: HqDetails } }
 
 export async function getHqDetails({ slug }: Params): Promise<ReturnType> {
-  const response = await fetch(`${env.NEXT_PUBLIC_VERCEL_URL}/api/hq/${slug}/`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/hq/${slug}/`, {
     headers: {
       Accept: "application/json",
       method: "GET",

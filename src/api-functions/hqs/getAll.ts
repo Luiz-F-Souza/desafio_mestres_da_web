@@ -1,9 +1,9 @@
 import { Hq } from "@/@types/types"
-import { env } from "@/env"
+// import { env } from "@/env"
 
 export async function getAllHqs(): Promise<{ data: Hq[] }> {
   const response = await fetch(
-    `${env.NEXT_PUBLIC_VERCEL_URL}/api/hq/get-all`,
+    `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/hq/get-all`,
     {
       headers: {
         Accept: "application/json",

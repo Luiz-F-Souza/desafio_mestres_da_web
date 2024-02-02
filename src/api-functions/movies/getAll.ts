@@ -1,9 +1,9 @@
 import { Movie } from "@/@types/types"
-import { env } from "@/env"
+// import { env } from "@/env"
 
 export async function getAllMovies(): Promise<{ data: Movie[] }> {
   const response = await fetch(
-    `${env.NEXT_PUBLIC_VERCEL_URL}/api/movie/get-all`,
+    `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/movie/get-all`,
     {
       headers: {
         Accept: "application/json",
