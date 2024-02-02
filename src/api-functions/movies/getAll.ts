@@ -1,7 +1,7 @@
-import { Hero } from "@/@types/types"
+import { Movie } from "@/@types/types"
 import { env } from "@/env"
 
-export async function getAllMovies(): Promise<{ data: Hero[] }> {
+export async function getAllMovies(): Promise<{ data: Movie[] }> {
   const response = await fetch(
     `${env.NEXT_PUBLIC_VERCEL_URL}/api/movie/get-all`,
     {
