@@ -2,17 +2,13 @@
 
 import Link from "next/link"
 import ProfilePath from "@/assets/eu.jpg"
-import {
-  axiformaBold,
-  axiformaLight,
-} from "@/components/Fonts/Axiforma"
+import { axiformaBold, axiformaLight } from "@/components/Fonts/Axiforma"
 import { Logo } from "../Logo"
 import { ProfilePhoto } from "../ProfilePhoto/ProfilePhoto"
 import { usePathname } from "next/navigation"
 import { ActiveLink } from "../ActiveLink"
 import { IoMenu, IoCloseOutline } from "react-icons/io5"
 import { useState } from "react"
-import { twMerge } from "tailwind-merge"
 import { BodyOverlay } from "../BodyOverlay/BodyOverlay"
 
 export const MainHeader = () => {
@@ -27,10 +23,10 @@ export const MainHeader = () => {
               px-8 py-4 
               shadow-md shadow-red-700 
               bg-black-900
-              z-20
+              z-20 md:z-10
             "
     >
-      <Link href="/" className="w-auto md:w-64">
+      <Link href="/" className="w-auto md:w-64 ">
         <Logo />
       </Link>
 
@@ -44,10 +40,11 @@ export const MainHeader = () => {
       <div
         className={`
             fixed md:relative
+            opacity-1
             top-0 bottom-0
             transition-[right]
-            w-1/2 md:w-auto
-            z-20
+            w-2/3 md:w-auto
+            z-50
             bg-red-700 md:bg-white-500/0
             flex flex-col flex-1 md:flex-row
             ${isMobileMenuOpen ? "right-0" : "-right-full md:right-0 "}
@@ -108,7 +105,7 @@ export const MainHeader = () => {
       {isMobileMenuOpen && (
         <BodyOverlay
           onClick={() => setIsMobileMenuOpen(false)}
-          className="md:hidden bg-gradient-to-r from-gray-500/50 via-gray-300/50 backdrop-blur-[2px]"
+          className="md:hidden bg-gradient-to-r from-gray-500/50 via-gray-300/50 backdrop-blur-[3px]"
         />
       )}
     </header>
