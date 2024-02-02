@@ -1,9 +1,10 @@
 import { Movie } from "@/@types/types"
+import { BASE_API_URL } from "@/env/CONSTANTS"
 // import { env } from "@/env"
 
 export async function getAllMovies(): Promise<{ data: Movie[] }> {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/movie/get-all`,
+    `${BASE_API_URL}/api/movie/get-all`,
     {
       headers: {
         Accept: "application/json",

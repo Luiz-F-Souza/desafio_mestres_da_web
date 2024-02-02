@@ -1,4 +1,5 @@
 import { HeroDetails } from "@/@types/types"
+import { BASE_API_URL } from "@/env/CONSTANTS"
 // import { env } from "@/env"
 
 type Params = {
@@ -8,7 +9,7 @@ export async function getHerosDetails({
   slug,
 }: Params): Promise<{ data: { detail: HeroDetails } }> {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/hero/${slug}/`,
+    `${BASE_API_URL}/api/hero/${slug}/`,
     {
       headers: {
         Accept: "application/json",

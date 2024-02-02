@@ -1,4 +1,5 @@
 import { HqDetails } from "@/@types/types"
+import { BASE_API_URL } from "@/env/CONSTANTS"
 // import { env } from "@/env"
 
 type Params = {
@@ -8,7 +9,7 @@ type Params = {
 type ReturnType = { data: { detail: HqDetails } }
 
 export async function getHqDetails({ slug }: Params): Promise<ReturnType> {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/hq/${slug}/`, {
+  const response = await fetch(`${BASE_API_URL}/api/hq/${slug}/`, {
     headers: {
       Accept: "application/json",
       method: "GET",

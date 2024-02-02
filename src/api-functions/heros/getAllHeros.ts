@@ -1,9 +1,10 @@
 import { Hero } from "@/@types/types"
+import { BASE_API_URL } from "@/env/CONSTANTS"
 
 
 export async function getAllHeros(): Promise<{data: Hero[]}> {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/hero/get-all`,
+      `${BASE_API_URL}/api/hero/get-all`,
       {
         headers: {
           Accept: "application/json",

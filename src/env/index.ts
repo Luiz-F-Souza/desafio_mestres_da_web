@@ -1,9 +1,9 @@
 // import { z } from "zod"
 
 // const envSchema = z.object({
-//   NEXT_PUBLIC_VERCEL_URL: z
+//   NEXT_PUBLIC_VERCEL_API_URL: z
 //     .string()
-//     .url("❌ ENV: Forneça uma URL para NEXT_PUBLIC_VERCEL_URL"),
+//     .url("❌ ENV: Forneça uma URL para NEXT_PUBLIC_VERCEL_API_URL"),
 //   NEXT_PUBLIC_VERCEL_ENV: z.enum(["development", "preview", "production"]),
 // })
 
