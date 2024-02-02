@@ -3,6 +3,7 @@ import { getMovieDetails } from "@/api-functions/movies/getDetails"
 import { InformationCard } from "@/components/Cards/InformationCard"
 import { MovieMoreDetails } from "@/components/Cards/components/MovieMoreDetails"
 import { ScrollableContainer } from "@/components/ScrollableContainer"
+import { SelectInputToQueryParams } from "@/components/SelectInputToQueryParams"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -11,11 +12,14 @@ export const metadata: Metadata = {
 }
 
 type Props = {
-  searchParams: { slug: string } | undefined
+  searchParams: { slug: string; ordem: "canonica" | "lancamento" } | undefined
 }
 
 export default async function MoviesPage({ searchParams }: Props) {
-  const response = await getAllMovies()
+  const orderBySlug = searchParams?.ordem ?? "lancamento"
+  const orderBy =
+    orderBySlug === "lancamento" ? "launchedIn" : "chronologyOrder"
+  const response = await getAllMovies({ orderBy })
   const allMovies = response?.data
 
   const slug = searchParams?.slug
@@ -29,6 +33,10 @@ export default async function MoviesPage({ searchParams }: Props) {
 
   return (
     <main className="flex flex-col flex-1">
+      <SelectInputToQueryParams>
+        <option value="lancamento">Lançamento</option>
+        <option value="canonica">Canonica</option>
+      </SelectInputToQueryParams>
       <ScrollableContainer>
         {allMovies?.map((movie) => {
           const isCurrentCardOpen = slug === movie.nameSlug
