@@ -3,6 +3,12 @@ import { getMovieDetails } from "@/api-functions/movies/getDetails"
 import { InformationCard } from "@/components/Cards/InformationCard"
 import { MovieMoreDetails } from "@/components/Cards/components/MovieMoreDetails"
 import { ScrollableContainer } from "@/components/ScrollableContainer"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Marvel - Filmes",
+  description: "Descubra onde assistir seus filmes favoritos.",
+}
 
 type Props = {
   searchParams: { slug: string } | undefined

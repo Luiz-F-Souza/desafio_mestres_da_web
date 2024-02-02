@@ -3,6 +3,13 @@ import { getHqDetails } from "@/api-functions/hqs/getDetails"
 import { InformationCard } from "@/components/Cards/InformationCard"
 import { HqMoreDetails } from "@/components/Cards/components/HqMoreDetails"
 import { ScrollableContainer } from "@/components/ScrollableContainer"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Marvel - HQs",
+  description: "Descubra onde adiquirir suas hQs",
+}
+
 
 type Props = {
   searchParams: { slug: string } | undefined

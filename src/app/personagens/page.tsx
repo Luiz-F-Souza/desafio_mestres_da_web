@@ -3,6 +3,15 @@ import { getHerosDetails } from "@/api-functions/heros/getDetails"
 import { InformationCard } from "@/components/Cards/InformationCard"
 import { HeroMoreDetails } from "@/components/Cards/components/HeroMoreDetails"
 import { ScrollableContainer } from "@/components/ScrollableContainer"
+import { Metadata } from "next"
+
+
+
+
+export const metadata: Metadata = {
+  title: "Marvel - Personagens",
+  description: "Conheça cada herói do universo Marvel",
+}
 
 type Props = {
   searchParams: { slug: string } | undefined
