@@ -1,3 +1,5 @@
+type Rate = 0 | 1 | 2 | 3 | 4 | 5
+
 export type Hero = {
   id: number
   name: string
@@ -10,7 +12,7 @@ export type HeroDetails = {
   heroId: number
   slug: string
   movies: string[]
-  rate: 0 | 1 | 2 | 3 | 4 | 5
+  rate: Rate
 }
 
 export type Movie = {
@@ -21,4 +23,36 @@ export type Movie = {
   launchedIn: string
   chronologyOrder: number
   imageUrl?: string
+}
+
+export type MovieDetails = {
+  movieId: number
+  slug: string
+  description: string
+  availableAt: {
+    providerName: string
+    providerImageUrl: string
+    providerUrl: string
+  }[]
+  rate: Rate
+}
+
+export type Hq = {
+  id: number
+  name: string
+  nameSlug: string
+  description: string
+  imageUrl?: string
+}
+
+export type HqDetails = {
+  hqId: number
+  slug: string
+  description: string
+  rate: Rate
+  sellers: {
+    sellerName: string
+    sellerImageUrl: string
+    sellerUrl: string
+  }[]
 }
