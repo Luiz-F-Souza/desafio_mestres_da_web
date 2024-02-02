@@ -10,7 +10,7 @@ type Props = {
 
 export default async function MoviesPage({ searchParams }: Props) {
   const response = await getAllMovies()
-  const allMovies = response.data
+  const allMovies = response?.data
 
   const slug = searchParams?.slug
   const isSomeCardOpen = !!slug

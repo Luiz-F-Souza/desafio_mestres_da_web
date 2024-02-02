@@ -10,7 +10,7 @@ type Props = {
 
 export default async function HerosPage({ searchParams }: Props) {
   const response = await getAllHeros()
-  const allHeros = response.data
+  const allHeros = response?.data
 
   const slug = searchParams?.slug
   const isSomeCardOpen = !!slug

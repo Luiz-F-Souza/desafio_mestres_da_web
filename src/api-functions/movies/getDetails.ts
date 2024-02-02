@@ -7,16 +7,14 @@ type Params = {
 }
 export async function getMovieDetails({
   slug,
-}: Params): Promise<{ data: { detail: MovieDetails } }> {
-  const response = await fetch(
-    `${BASE_API_URL}/api/movie/${slug}/`,
-    {
-      headers: {
-        Accept: "application/json",
-        method: "GET",
-      },
-    }
-  )
+}: Params): Promise<{ data: { detail: MovieDetails } } | null> {
+  if (!BASE_API_URL) return null
+  const response = await fetch(`${BASE_API_URL}/api/movie/${slug}/`, {
+    headers: {
+      Accept: "application/json",
+      method: "GET",
+    },
+  })
   if (!response.ok) {
     throw new Error("Erro ao consultar os dados do filme")
   }

@@ -10,7 +10,7 @@ type Props = {
 
 export default async function HqsPage({ searchParams }: Props) {
   const response = await getAllHqs()
-  const allMovies = response.data
+  const allMovies = response?.data
 
   const slug = searchParams?.slug
   const isSomeCardOpen = !!slug

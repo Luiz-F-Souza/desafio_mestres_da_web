@@ -7,7 +7,8 @@ type Params = {
 }
 export async function getHerosDetails({
   slug,
-}: Params): Promise<{ data: { detail: HeroDetails } }> {
+}: Params): Promise<{ data: { detail: HeroDetails } } | null> {
+  if (!BASE_API_URL) return null
   const response = await fetch(
     `${BASE_API_URL}/api/hero/${slug}/`,
     {
