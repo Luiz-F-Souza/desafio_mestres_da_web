@@ -13,10 +13,10 @@ export const ScrollableContainer = ({
   return (
     <div
       className={twMerge(
-        `grid grid-flow-col
-         gap-32
+        `flex flex-shrink-0
+         z-10
          my-auto
-         px-40 
+         px-2 md:px-40 
          overflow-x-auto 
          snap-x
          no-scrollbar`,
