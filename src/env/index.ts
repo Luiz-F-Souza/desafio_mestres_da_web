@@ -8,7 +8,8 @@ const envSchema = z.object({
 const safeParse = envSchema.safeParse(process.env)
 
 if(!safeParse.success){
-    throw new Error("O ambiente .env.local deve ser configurado corretamente. Confira o .env.exemple")
+
+    throw new Error(`O ambiente .env.local deve ser configurado corretamente. Erro: ${safeParse.error.message}`)
 }
 
 export const env = safeParse.data
