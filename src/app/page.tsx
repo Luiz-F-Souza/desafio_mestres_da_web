@@ -9,7 +9,7 @@ export default async function Home() {
     <main
       className={`flex flex-col flex-1 items-center px-4 text-lg ${axiformaLight}`}
     >
-      <div className="z-50 rounded-md overflow-hidden  max-w-screen-sm bg-red-700 p-3 mt-5">
+      <div className="z-0 rounded-md overflow-hidden  max-w-screen-sm bg-red-700 p-3 mt-5">
         <div className="flex gap-4 items-center mb-2">
           <h2 className={`${axiformaBold.className} text-2xl mt-2`}>
             O Super Dev JR
