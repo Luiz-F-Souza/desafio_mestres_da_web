@@ -1,9 +1,3 @@
----
-
-nome: 🐛 Relato de Bug
-labels: bug
----
-
 ## 🐛 Relato de Bug
 
 Uma descrição clara e concisa do que é o bug e onde está ocorrendo.
