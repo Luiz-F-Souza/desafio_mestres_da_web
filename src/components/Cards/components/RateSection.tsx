@@ -8,7 +8,7 @@ type Props = {
 export const RateSection = ({ title, rate }: Props) => {
   return (
     <>
-      <p className="text-2xl my-4">{title}</p>
+      <p className="text-xl md:text-2xl my-2">{title}</p>
 
       <div className="flex gap-1">
         <FaStar
