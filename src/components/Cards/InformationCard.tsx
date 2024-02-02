@@ -1,12 +1,12 @@
+"use client"
+
 import Image from "next/image"
 import { axiformaBold, axiformaLight } from "../Fonts/Axiforma"
-import { Hero } from "@/@types/types"
 import Link from "next/link"
-import { getHerosDetails } from "@/api-functions/heros/getDetails"
 import { BodyOverlay } from "../BodyOverlay/BodyOverlay"
-import { CloseCardButton } from "./components/CloseCardButton"
-import { RateSection } from "./components/RateSection"
-import { ReactNode } from "react"
+import { ReactNode, useRef } from "react"
+import { useSetDetailsDirection } from "./hooks/useSetDetailsDirection"
+import { useScrollCardIntoView } from "./hooks/useScrollCardIntoView"
 
 type Props = {
   imageURL: string | undefined
@@ -27,11 +27,12 @@ type Props = {
  * @param description type: string.
  * @param imageURL type: string | undefined.
  * @param title type: string.
- * @param cardSlug type: string. O slug que será usado para saber se o card atual está aberto quando comparado ao @pageSlug .
+ * @param cardSlug type: string. O slug que será usado para saber se o card atual está aberto quando comparado ao pageSlug .
+ * @param pageSlug type: string | undefined. O slug que será usado para saber se o card atual está aberto quando comparado ao cardSlug .
  * @param isOpen type: boolean.
  * @see [Docs](./README.md) - Link to additional documentation.
  */
-export const InformationCard = async ({
+export const InformationCard = ({
   description,
   imageURL,
   title,
@@ -43,31 +44,60 @@ export const InformationCard = async ({
   const isSomeCardOpen = !!pageSlug
   const isCurrentCardOpen = pageSlug === cardSlug
 
+  const containerRef = useRef<HTMLElement>(null)
+
+  const { detailsDirection } = useSetDetailsDirection({
+    elementRef: containerRef,
+    effectUpdater: isCurrentCardOpen,
+  })
+
+  // useScrollCardIntoView({
+  //   cardDetailsDirection: detailsDirection,
+  //   shouldScroll: isCurrentCardOpen,
+  //   elementRef: containerRef,
+  // })
+
   return (
-    <article
-      className={`
+    <>
+      <article
+        ref={containerRef}
+        className={`
         relative
         rounded-3xl overflow-hidden
+        shrink-0
+        mx-4 md:mx-20
         snap-center
-        ${isSomeCardOpen ? (isCurrentCardOpen ? "z-30" : "z-0") : "z-10"}
-        ${isCurrentCardOpen ? "flex w-160" : "block w-72"}
-         h-110 
+        max-w-[calc(100vw-20px)]
+        ${isSomeCardOpen ? (isCurrentCardOpen ? "z-30" : "-z-10") : "z-10"}
+        ${
+          isCurrentCardOpen
+            ? ` grid md:flex w-160 md:h-110  ${detailsDirection}`
+            : "block w-72 h-110"
+        }
+           
       `}
-    >
-      <Image
-        src={imageURL ?? ""}
-        alt="teste alt"
-        width={290}
-        height={440}
-        className="
-            object-cover object-center z-50
-        "
-        loading="lazy"
-      />
-
-      {!isCurrentCardOpen && (
-        <section
+      >
+        <Image
+          src={imageURL ?? ""}
+          alt={`Imagem de: ${title}`}
+          width={500}
+          height={500}
           className={`
+            object-cover object-top md:object-center  
+            h-full aspect-video md:aspect-auto
+            z-10
+            ${
+              isCurrentCardOpen
+                ? "w-full max-h-60 md:max-h-none  md:max-w-72 rounded-3xl"
+                : "max-w-72"
+            }
+          `}
+          loading="lazy"
+        />
+
+        {!isCurrentCardOpen && (
+          <section
+            className={`
             flex flex-col
             absolute 
             bottom-0 top-1/2 left-0 right-0
@@ -76,21 +106,38 @@ export const InformationCard = async ({
             p-5
             ${axiformaLight}
         `}
-        >
-          <h3 className={`text-center mb-4 text-xl ${axiformaBold.className}`}>
-            {title}
-          </h3>
-          <p className="text-xs">{description}</p>
-          <Link
-            href={`?slug=${cardSlug}`}
-            className="block mt-auto text-xl drop-shadow-x h-8"
           >
-            Ver detalhes
-          </Link>
-        </section>
-      )}
+            <h3
+              className={`text-center mb-4 text-xl ${axiformaBold.className}`}
+            >
+              {title}
+            </h3>
+            <p className="text-xs">{description}</p>
+            <Link
+              href={`?slug=${cardSlug}`}
+              className="block mt-auto text-xl drop-shadow-x h-8 text-center"
+            >
+              {buttonText}
+            </Link>
+          </section>
+        )}
 
-      {children}
-    </article>
+        {children}
+
+        <div
+          className={`
+            absolute 
+            top-0 bottom-0 left-0
+            ${
+              isCurrentCardOpen
+                ? "right-0 transition-[right] duration-200"
+                : "right-[100%]"
+            } 
+            bg-gradient-to-b from-red-400 to-red-700
+          `}
+        />
+      </article>
+      {isCurrentCardOpen && <BodyOverlay className="fixed z-10]" />}
+    </>
   )
 }
