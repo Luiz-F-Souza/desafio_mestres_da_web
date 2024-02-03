@@ -48,7 +48,7 @@ Usei também o JSDocs para dar um resuminho na invocação de alguns componentes
 
 ### Como rodar o projeto:
 
-Pela web: 
+Pela web: https://mestres-da-web-desafio.vercel.app/entrar
 
 Se desejar rodar localmente:
 
