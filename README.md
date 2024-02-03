@@ -17,21 +17,27 @@
 
 ---
 
+## Requisitos técnicos solicitados e utilizados
+- React.js (Next.js)
+- Typescript
+- Styled Components & Tailwind
+- React Hook Form
+- Zod
+- Zustand
+- Local Storage
+- Responsividade
+- Organização
+- Clean code
+- Documentações
+
 ## Sobre o desafio
 
 Tentei criar o mais próximo possível do objetivo final.
 
 Resolvi utilizar a abordagem com QueryParams para guardar o estado de qual card está aberto no momento para melhor ux ao compartilhar o link com alguém. 
 
-Acabei usando o tailwind para agilizar, mas nada que uma boa lida na documentação do styled components não me lembre e ensine a configurar o next para usar o styled.
-
-Existem alguns pontos para melhoria, que irei otimizando enquanto tiver tempo para o desafio xD:
-
-- Melhorar animação de abertura do card.
-- Garantir que o card aberto sempre fique visível.
-- Adicionar Paginação
-- Adicionar Skeleton em todas partes dinâmicas
-- etc..
+Foram utilizadas 02 bibliotecas para estilização.
+A solicitada `Styled Components` e a `Tailwind` para itens renderizados no server side
 
 ### Documentações:
 
