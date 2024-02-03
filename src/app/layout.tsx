@@ -7,7 +7,7 @@ import { axiformaLight } from "@/components/Fonts/Axiforma"
 import { BodyOverlay } from "@/components/BodyOverlay/BodyOverlay"
 
 import "./globals.css"
-import { Notification } from "@/components/Notification"
+
 
 export const metadata: Metadata = {
   title: "Marvel - Explore o universo",
