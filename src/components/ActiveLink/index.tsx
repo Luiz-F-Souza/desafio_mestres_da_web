@@ -8,6 +8,15 @@ type Props = {
   className?: HTMLAttributes<HTMLAnchorElement>["className"]
 } & LinkProps
 
+/**
+ *
+ * O componente é um Link que altera sua cor quando está ativo. Indicando assim para o usuário em qual rota ele está.
+ *
+ * @component
+ * @children type: ReactNode.
+ * @param isActive type: boolean.
+ * @param className type: undefined | string
+ */
 export const ActiveLink = ({
   isActive,
   children,

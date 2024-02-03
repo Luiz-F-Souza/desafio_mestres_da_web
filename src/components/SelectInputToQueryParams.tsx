@@ -6,6 +6,15 @@ import { ChangeEvent, ReactNode } from "react"
 type Props = {
   children: ReactNode
 }
+
+/**
+ *
+ * O componente serve para fazer filtros usando queryParams.
+ * Foi desenado para ser usado junto com o ScrollableContainer.
+ *
+ * @component
+ * @children type: ReactNode.
+ */
 export const SelectInputToQueryParams = ({ children }: Props) => {
   const searchParams = useSearchParams()
   const searchParamsAsString = searchParams.toString()

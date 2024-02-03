@@ -2,6 +2,8 @@ import { HTMLAttributes } from "react"
 import { twMerge } from "tailwind-merge"
 
 type Props = HTMLAttributes<HTMLDivElement>
+
+
 export const BodyOverlay = ({ className, ...props }: Props) => {
   return (
     <div
