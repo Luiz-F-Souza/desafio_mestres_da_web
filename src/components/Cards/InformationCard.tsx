@@ -82,6 +82,8 @@ export const InformationCard = ({
           alt={`Imagem de: ${title}`}
           width={500}
           height={500}
+          placeholder="blur"
+          blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
           className={`
             object-cover object-top md:object-center  
             h-full aspect-video md:aspect-auto
