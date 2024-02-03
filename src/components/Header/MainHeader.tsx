@@ -5,13 +5,15 @@ import ProfilePath from "@/assets/eu.jpg"
 import { axiformaBold, axiformaLight } from "@/components/Fonts/Axiforma"
 import { Logo } from "../Logo"
 import { ProfilePhoto } from "../ProfilePhoto/ProfilePhoto"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { ActiveLink } from "../ActiveLink"
 import { IoMenu, IoCloseOutline } from "react-icons/io5"
 import { useState } from "react"
 import { BodyOverlay } from "../BodyOverlay/BodyOverlay"
+import { removeLocalJWT } from "@/utils/Jwt"
 
 export const MainHeader = () => {
+  const navigate = useRouter()
   const pathname = usePathname()
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -99,7 +101,14 @@ export const MainHeader = () => {
         `}
         >
           <ProfilePhoto src={ProfilePath} />
-          <p>Sair</p>
+          <button
+            onClick={() => {
+              navigate.push("/entrar")
+              removeLocalJWT()
+            }}
+          >
+            Sair
+          </button>
         </section>
       </div>
       {isMobileMenuOpen && (
