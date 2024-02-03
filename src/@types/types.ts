@@ -56,3 +56,17 @@ export type HqDetails = {
     sellerUrl: string
   }[]
 }
+
+export type User = {
+  email: string
+  name: string
+  phone: string
+  city: string
+  isPremium: boolean
+  imageURL?: string
+}
+
+export type JWT = {
+  expiresIn: number
+  token: string
+}

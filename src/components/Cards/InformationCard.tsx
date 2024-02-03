@@ -4,7 +4,7 @@ import Image from "next/image"
 import { axiformaBold, axiformaLight } from "../Fonts/Axiforma"
 import Link from "next/link"
 import { BodyOverlay } from "../BodyOverlay/BodyOverlay"
-import { ReactNode, useRef } from "react"
+import { ReactNode, useEffect, useRef } from "react"
 import { useSetDetailsDirection } from "./hooks/useSetDetailsDirection"
 import { useScrollCardIntoView } from "./hooks/useScrollCardIntoView"
 
@@ -51,11 +51,14 @@ export const InformationCard = ({
     effectUpdater: isCurrentCardOpen,
   })
 
-  // useScrollCardIntoView({
-  //   cardDetailsDirection: detailsDirection,
-  //   shouldScroll: isCurrentCardOpen,
-  //   elementRef: containerRef,
-  // })
+  useEffect(() => {
+    if (isCurrentCardOpen) {
+      containerRef.current?.scrollIntoView({
+        block: "nearest",
+        inline: "center",
+      })
+    }
+  }, [isCurrentCardOpen])
 
   return (
     <>
