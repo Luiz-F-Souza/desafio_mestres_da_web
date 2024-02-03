@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { MainHeader } from "@/components/Header/MainHeader"
 import bgImage from "@/assets/all-guardians.webp"
+import { Analytics } from '@vercel/analytics/react';
 
 import "./globals.css"
 import { BodyOverlay } from "@/components/BodyOverlay/BodyOverlay"
@@ -33,6 +34,8 @@ export default function RootLayout({
 
         <BodyOverlay />
         {children}
+
+        <Analytics />
       </body>
     </html>
   )
