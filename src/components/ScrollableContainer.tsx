@@ -12,6 +12,7 @@ export const ScrollableContainer = ({
 }: Props) => {
   return (
     <div
+      data-scrollable-container
       className={twMerge(
         `flex flex-shrink-0
          z-10

@@ -18,6 +18,16 @@ export const SelectInputToQueryParams = ({ children }: Props) => {
     const hasAnyQuery = searchParamsAsString.length > 0
     const alreadyHasOrderSearchParam = searchParams.get("ordem")
 
+    const scrollableContainer = document.querySelector(
+      "[data-scrollable-container]"
+    )
+
+    const timeToStartScrolling = setTimeout(() => {
+      scrollableContainer?.scrollTo({ left: 0, behavior: "smooth" })
+
+      clearTimeout(timeToStartScrolling)
+    }, 100)
+
     if (!hasAnyQuery) {
       navigate.replace(`?ordem=${selectedValue}`)
       return
@@ -40,28 +50,22 @@ export const SelectInputToQueryParams = ({ children }: Props) => {
   }
 
   return (
-    <label
-      className=" 
-      mx-2 md:mx-40 
-      mt-6
+    <select
+      className="
+        mx-2 md:mx-40 
+        mt-6 p-3
+        rounded-md
         outline-none 
+        border-[1px]
       border-red-500
-        border-2
+      text-red-500 
         bg-white-500/0 
-        text-red-500 
         w-fit
-        z-10"
+        z-10   
+      "
+      onChange={handleChange}
     >
-      <select
-        className="
-        p-2 
-            bg-white-500/0
-            w-full
-        "
-        onChange={handleChange}
-      >
-        {children}
-      </select>
-    </label>
+      {children}
+    </select>
   )
 }
